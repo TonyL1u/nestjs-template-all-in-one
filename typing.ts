@@ -1,7 +1,7 @@
-import type { Request as OriginalRequest } from 'express';
+import 'express';
 
 declare module 'express' {
-  interface Request extends OriginalRequest {
+  interface Request {
     user: {
       id: string;
       name: string;

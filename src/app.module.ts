@@ -4,6 +4,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+import { AppController } from './app.controller';
 import { AuthModule } from './biz/auth/auth.module';
 import { UsersModule } from './biz/users/users.module';
 import { getMysqlConnectOptions, JwtConfigService } from './common/services';
@@ -16,6 +17,7 @@ import { getMysqlConnectOptions, JwtConfigService } from './common/services';
     TypeOrmModule.forRootAsync({ useFactory: getMysqlConnectOptions }),
     AuthModule,
     UsersModule
-  ]
+  ],
+  controllers: [AppController]
 })
 export class AppModule {}
